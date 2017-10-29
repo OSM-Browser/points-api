@@ -1,0 +1,9 @@
+version: "3"
+services:
+  postgres:
+    image: osmbrowser/postgis
+    environment:
+      POSTGRES_USER: osm
+      POSTGRES_PASSWORD: osm
+    ports:
+      - "5432:5432"
