@@ -1,9 +1,10 @@
 version: "3"
 services:
+  api:
+    build: .
+    image: osmbrowser/points-api
   postgres:
     image: osmbrowser/postgis
     environment:
       POSTGRES_USER: osm
       POSTGRES_PASSWORD: osm
-    ports:
-      - "5432:5432"
