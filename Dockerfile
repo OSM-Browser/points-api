@@ -1,6 +1,9 @@
 FROM elixir:1.5-slim
 
+EXPOSE 80
+
 ENV MIX_ENV prod
+ENV PORT 80
 
 WORKDIR /usr/src/points-api
 COPY . .

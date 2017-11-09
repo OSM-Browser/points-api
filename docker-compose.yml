@@ -1,10 +1,18 @@
 version: "3"
 services:
-  api:
+  points-api:
     build: .
     image: osmbrowser/points-api
+    environment:
+      DATABASE_URL: ecto://osm:osm@postgres/osm
+    links:
+      - postgres
   postgres:
     image: osmbrowser/postgis
     environment:
       POSTGRES_USER: osm
       POSTGRES_PASSWORD: osm
+    volumes:
+      - postgres:/var/lib/postgresql/data
+volumes:
+  postgres:
