@@ -4,14 +4,16 @@ services:
     build: .
     image: osmbrowser/points-api
     environment:
-      DATABASE_URL: ecto://osm:osm@postgres/osm
+      - BUGSNAG_API_KEY
+      - DATABASE_URL=ecto://osm:osm@postgres/osm
+      - MIX_ENV
     links:
       - postgres
   postgres:
     image: osmbrowser/postgis
     environment:
-      POSTGRES_USER: osm
-      POSTGRES_PASSWORD: osm
+      - POSTGRES_USER=osm
+      - POSTGRES_PASSWORD=osm
     volumes:
       - postgres:/var/lib/postgresql/data
 volumes:

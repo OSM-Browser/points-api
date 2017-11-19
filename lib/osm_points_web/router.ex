@@ -1,5 +1,6 @@
 defmodule OsmPointsWeb.Router do
   use OsmPointsWeb, :router
+  use Plugsnag
 
   pipeline :api do
     plug :accepts, ["json"]

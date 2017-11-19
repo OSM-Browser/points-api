@@ -2,6 +2,7 @@ version: "3"
 services:
   points-api:
     environment:
-      VIRTUAL_HOST: $VIRTUAL_HOST
-      LETSENCRYPT_HOST: $VIRTUAL_HOST
-      LETSENCRYPT_EMAIL: $LETSENCRYPT_EMAIL
+      - MIX_ENV=prod
+      - VIRTUAL_HOST
+      - LETSENCRYPT_HOST
+      - LETSENCRYPT_EMAIL

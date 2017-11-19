@@ -44,3 +44,5 @@ config :osm_points, OsmPoints.Repo,
   database: "osm",
   hostname: "localhost",
   pool_size: 10
+
+config :bugsnag, release_stage: "dev"

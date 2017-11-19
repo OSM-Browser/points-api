@@ -1,5 +1,12 @@
 version: "3"
 services:
+  points-api:
+    environment:
+      - MIX_ENV=dev
+    volumes:
+      - .:/usr/src/points-api
+    ports:
+      - "4000:4000"
   postgres:
     ports:
       - "5432:5432"

@@ -17,3 +17,5 @@ config :osm_points, OsmPoints.Repo,
   database: "osm_points_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :bugsnag, release_stage: "test"
