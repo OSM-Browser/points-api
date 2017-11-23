@@ -7,10 +7,10 @@ use Mix.Config
 
 config :osm_points, OsmPoints.Repo,
   adapter: Ecto.Adapters.Postgres,
-  database: "osm_points_repo",
-  username: "user",
-  password: "pass",
-  hostname: "localhost",
+  database: System.get_env("DB_DATABASE") || "osm_points_repo",
+  username: System.get_env("DB_USER") || "user",
+  password: System.get_env("DB_PASSWORD") || "pass",
+  hostname: System.get_env("DB_HOST") || "localhost",
   types: OsmPoints.PostgresTypes
 
 # General application configuration
