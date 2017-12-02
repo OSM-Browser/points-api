@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Points API
+name: points-api
+version: 0.1.0

@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "points-api.fullname" . }}
+  labels:
+    app: {{ template "points-api.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "points-api.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+          - name: DB_HOST
+            value: {{ template "points-api.postgresql.fullname" . }}
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "points-api.fullname" . }}
+                key: db-user
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ template "points-api.fullname" . }}
+                key: db-password
+          - name: DB_DATABASE
+            value: {{ .Values.postgresql.postgresDatabase | quote }}
+          ports:
+            - containerPort: {{ .Values.service.internalPort }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+    {{- end }}
