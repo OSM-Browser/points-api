@@ -10,3 +10,11 @@ services:
   postgres:
     ports:
       - "5432:5432"
+  pgweb:
+    image: sosedoff/pgweb
+    environment:
+      - DATABASE_URL=postgres://osm:osm@postgres:5432/postgres?sslmode=disable
+    links:
+      - postgres
+    ports:
+      - "4001:8081"

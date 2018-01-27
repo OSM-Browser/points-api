@@ -10,7 +10,7 @@ services:
     links:
       - postgres
   postgres:
-    image: osmbrowser/postgis
+    image: mdillon/postgis:10-alpine
     environment:
       - POSTGRES_USER=osm
       - POSTGRES_PASSWORD=osm
