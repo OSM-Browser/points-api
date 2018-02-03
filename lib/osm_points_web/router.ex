@@ -6,9 +6,15 @@ defmodule OsmPointsWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", OsmPointsWeb do
+  scope "/" do
     pipe_through :api
 
-    get "/points", PointController, :index
+    get "/points", OsmPointsWeb.PointController, :index
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: OsmPointsWeb.Schema
+
+    forward "/", Absinthe.Plug,
+      schema: OsmPointsWeb.Schema
   end
 end
