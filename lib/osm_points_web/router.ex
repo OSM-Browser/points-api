@@ -15,6 +15,7 @@ defmodule OsmPointsWeb.Router do
       schema: OsmPointsWeb.Schema
 
     forward "/", Absinthe.Plug,
-      schema: OsmPointsWeb.Schema
+      schema: OsmPointsWeb.Schema,
+      pipeline: {ApolloTracing.Pipeline, :plug}
   end
 end

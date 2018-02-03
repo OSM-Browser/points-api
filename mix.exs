@@ -44,7 +44,8 @@ defmodule OsmPoints.Mixfile do
       {:bugsnag, "~> 1.5.0"},
       {:plugsnag, "~> 1.3.0"},
       {:absinthe, "~> 1.4"},
-      {:absinthe_plug, "~> 1.4"}
+      {:absinthe_plug, "~> 1.4"},
+      {:apollo_tracing, "~> 0.2.0"}
     ]
   end
 

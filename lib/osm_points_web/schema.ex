@@ -1,5 +1,7 @@
 defmodule OsmPointsWeb.Schema do
   use Absinthe.Schema
+  use ApolloTracing
+
   import_types OsmPointsWeb.Schema.PointType
   import_types OsmPointsWeb.Schema.CoordinatesType
 
