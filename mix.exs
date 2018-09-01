@@ -39,7 +39,7 @@ defmodule OsmPoints.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:geo_postgis, "~> 1.0"},
+      {:geo_postgis, "~> 2.0"},
       {:cors_plug, "~> 1.2"},
       {:bugsnag, "~> 1.6.0"},
       {:plugsnag, "~> 1.3.0"},
