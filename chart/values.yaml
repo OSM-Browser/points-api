@@ -1,7 +1,6 @@
 # Default values for points-api.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-config:
 replicaCount: 1
 image:
   repository: osmbrowser/points-api
@@ -36,6 +35,10 @@ resources: {}
   # requests:
   #  cpu: 100m
   #  memory: 128Mi
+
+## Extra environment variables that will be pass onto deployment pods
+env: {}
+secretEnv: {}
 
 ## Configuration values for the postgresql dependency.
 ## ref: https://github.com/kubernetes/charts/blob/master/stable/postgresql/README.md

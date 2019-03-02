@@ -20,24 +20,19 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+          {{- if .Values.postgresql.enabled }}
           - name: DB_HOST
             value: {{ template "points-api.postgresql.fullname" . }}
-          - name: DB_USER
-            valueFrom:
-              secretKeyRef:
-                name: {{ template "points-api.fullname" . }}
-                key: db-user
-          - name: DB_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: {{ template "points-api.fullname" . }}
-                key: db-password
           - name: DB_DATABASE
             value: {{ .Values.postgresql.postgresDatabase | quote }}
-          {{- range $key, $value := .Values.config }}
-          - name: "{{ $key }}"
-            value: "{{ $value }}"
           {{- end }}
+          {{- range $key, $value := .Values.env }}
+            - name: {{ $key | quote }}
+              value: {{ $value | quote  }}
+          {{- end }}
+          envFrom:
+            - secretRef:
+                name: {{ template "points-api.fullname" . }}
           ports:
             - containerPort: {{ .Values.service.internalPort }}
           resources:
