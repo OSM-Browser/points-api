@@ -41,6 +41,7 @@ resources: {}
 ## ref: https://github.com/kubernetes/charts/blob/master/stable/postgresql/README.md
 ##
 postgresql:
+  enabled: true
   image: mdillon/postgis
   imageTag: "10"
   cpu: 1000m
