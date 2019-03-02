@@ -40,7 +40,7 @@ defmodule OsmPoints.Mixfile do
       {:gettext, "~> 0.11"},
       {:plug_cowboy, "~> 1.0"},
       {:geo_postgis, "~> 1.0"},
-      {:cors_plug, "~> 1.2"},
+      {:cors_plug, "~> 2.0"},
       {:bugsnag, "~> 1.7.0"},
       {:plugsnag, "~> 1.3.0"},
       {:absinthe, "~> 1.4"},
