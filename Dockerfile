@@ -1,4 +1,4 @@
-FROM elixir:1.7-slim
+FROM elixir:1.8-slim
 
 EXPOSE 80
 
