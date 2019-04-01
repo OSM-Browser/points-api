@@ -4,7 +4,7 @@ services:
     environment:
       - MIX_ENV=dev
     volumes:
-      - .:/usr/src/points-api
+      - .:/src/
     ports:
       - "4000:4000"
   postgres:
