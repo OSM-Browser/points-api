@@ -1,4 +1,4 @@
-FROM elixir:1.8-alpine
+FROM elixir:1.11.2-alpine
 
 EXPOSE 80
 
