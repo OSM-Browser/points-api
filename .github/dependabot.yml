@@ -1,0 +1,35 @@
+version: 2
+updates:
+- package-ecosystem: mix
+  directory: "/"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: absinthe_plug
+    versions:
+    - 1.5.4
+    - 1.5.5
+    - 1.5.6
+    - 1.5.7
+  - dependency-name: plugsnag
+    versions:
+    - 1.6.0
+  - dependency-name: plug_cowboy
+    versions:
+    - 2.4.1
+  - dependency-name: cors_plug
+    versions:
+    - 2.0.2
+  - dependency-name: geo_postgis
+    versions:
+    - 2.1.0
+- package-ecosystem: docker
+  directory: "/"
+  schedule:
+    interval: weekly
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: elixir
+    versions:
+    - 1.11.3.pre.alpine
